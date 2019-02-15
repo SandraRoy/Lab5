@@ -141,6 +141,8 @@ public class Calculator
     		return calculateTwoTokens(tokens);
         case 3: 
         	return calculateThreeTokens(tokens);
+        case 4: 
+        	throw new CalculatorException("Illegal Token Length");
         	
     
         }
