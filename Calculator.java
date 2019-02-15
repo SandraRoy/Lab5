@@ -137,7 +137,9 @@ public class Calculator
     			return Integer.MIN_VALUE;
     		else
     			throw new CalculatorException("Illegal Command");
-    	
+        case 2:
+    		calculateTwoTokens(tokens);
+    
         }
 
     }
