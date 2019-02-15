@@ -28,6 +28,11 @@ public class CalculatorTest {
     public void calculateTwoTokensTestValidHalve() throws AssertException
     {
         // TODO: complete this test...
+    	try 
+    	{
+    		int answer=Calculator.calculateTwoTokens(new String[] {"halve", "10"});
+    		Assert.assertEquals(5, answer);
+    	}
     }
 
     /**
