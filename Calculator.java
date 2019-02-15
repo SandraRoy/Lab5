@@ -139,6 +139,9 @@ public class Calculator
     			throw new CalculatorException("Illegal Command");
         case 2:
     		return calculateTwoTokens(tokens);
+        case 3: 
+        	return calculateThreeTokens(tokens);
+        	
     
         }
 
