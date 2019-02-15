@@ -33,6 +33,10 @@ public class CalculatorTest {
     		int answer=Calculator.calculateTwoTokens(new String[] {"halve", "10"});
     		Assert.assertEquals(5, answer);
     	}
+    	catch(Exception e)
+    	{
+    		Assert.fail("Legal expression threw an Exception: "+e.getMessage());
+    	}
     }
 
     /**
