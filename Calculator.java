@@ -42,6 +42,13 @@ public class Calculator
     {
         int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
         // TODO: complete this...
+        String action=tokens[1];
+        if(action.equals("negate"))
+        	return a*-1;
+        else if(action.equals("halve"))
+        	return a/2;
+        else
+        	throw new CalculatorException("Illegal Command"); 
     }
 
     /**
@@ -76,6 +83,17 @@ public class Calculator
             throws ArithmeticException, NumberFormatException, CalculatorException
     {
         // TODO: complete this...
+    	int a=Integer.parseInt(tokens[0]);
+    	String command=tokens[1];
+    	int b=Integer.parseInt(tokens[2]);
+    	if(command.equals("+"))
+    		return a+b;
+    	else if(command.equals("-"))
+    		return a-b;
+    	else if(command.equals("/"))
+    		return a/b;
+    	else
+    		throw new CalculatorException("Illegal Command");
     }
 
     /**
@@ -112,6 +130,16 @@ public class Calculator
         switch(tokens.length)
         {
             // TODO: complete this...
+        case 0: 
+    		throw new CalculatorException("Illegal Token Length");
+        	case 1:
+        		if(tokens[0].equalsIgnoreCase("quit"))
+        			return Integer.MIN_VALUE;
+        		else
+        			throw new CalculatorException("Illegal Command");
+        	case 2:
+        		calculateTwo
+        
         }
 
     }
