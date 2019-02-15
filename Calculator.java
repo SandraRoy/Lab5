@@ -138,7 +138,7 @@ public class Calculator
     		else
     			throw new CalculatorException("Illegal Command");
         case 2:
-    		calculateTwoTokens(tokens);
+    		return calculateTwoTokens(tokens);
     
         }
 
