@@ -42,7 +42,7 @@ public class Calculator
     {
         int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
         // TODO: complete this...
-        String action=tokens[1];
+        String action=tokens[0];
         if(action.equals("negate"))
         	return a*-1;
         else if(action.equals("halve"))
@@ -143,10 +143,9 @@ public class Calculator
         	return calculateThreeTokens(tokens);
         case 4: 
         	throw new CalculatorException("Illegal Token Length");
-        	
-    
+        	   
         }
-
+return -1;
     }
 
     /**
@@ -178,18 +177,34 @@ public class Calculator
      * (5) "Calculator Exception, message is: %s", where %s is the message of a
      * CalculatorException - a CalculatorException has been caught.
      */
-    public static String parseAndExecute(String input) throws IOException
+    public static String parseAndExecute(String input) 
     {
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
         // method will catch those exceptions and respond accordingly.
-    	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-    	String words=br.readLine();
-    	while(words!=null)
+    	String temp[]=input.split(" ");
+    	try
     	{
-    		
+    	execute(temp);
+    	if(execute(temp)==Integer.MIN_VALUE)
+    		return "quit";
+    	else if(execute(temp)==(int)(execute(temp)))
+    	{
+    		return String.format("The result is: %d",execute(temp));
     	}
-    	
-    	
-    }
+    	}
+    	catch(ArithmeticException e)
+    	{
+    	return "Attempted to divide by 0. Please try again.";	
+    	}
+    	catch(NumberFormatException e)
+    	{
+    	return "Input number cannot be parsed to an int. Please try again.";	
+    	}
+    	catch(CalculatorException e)
+    	{
+    		return String.format("Calculator Exception, message is: %s", e.getMessage());
+    	}
+    	return "";
+}
 }
